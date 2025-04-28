@@ -1,0 +1,27 @@
+{
+  "name": "318sba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amblar-h00f/318SBA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Amblar-h00f/318SBA/issues"
+  },
+  "homepage": "https://github.com/Amblar-h00f/318SBA#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongodb": "^6.16.0"
+  }
+}
