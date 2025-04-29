@@ -1,46 +1,56 @@
 import express from 'express';
-import from '';
 
 const router = express.Router();
 
 /// create
 router.post('/', async (req, res) => {
 
-    const  = await (req.body);
+try {
 
-    //return results
-    res.json();
+    const newVeg = await Vegetable.create(req.body);
+    res.status(201).json(newVeg);
+}catch (err) {
+    res.status(400).json({ error: err.message });
+}
 });
+    
+
 
 //read
 router.get('/', async (req, res) => {
-    const  = await {});
+
+    try {
+        const vegetables = someVegetableArray;
+
 
     //return results
-    res.json();
+    res.json(vegetables);
+    }catch (err) {
+        res.status(500).json({error: 'Internal server error'});
+    }
 });
 
 //Update
 router.put('/:id', async (req, res) => {
 
-    const  = await 
-    (req.params.id, req.body, { new: true, });
+    try {
+        const updatedVeg = await Vegetable.findByIdandUpdate(
+
+        );
+     res.status(400).json({ error: 'Failed to update vegetable' });
+    }
 });
-
-if (!) res.status(400).json({ msg: '' });
-
-res.json();
-
 //delete
 
 router.delete('/:id', async (req, res) => { 
-    //Specify Action
-    const  = await .findByIdAndDelete(req.params.id);
+   try {
+const deleteVeg = await Vegetable.findByIdAndDelete(req.params.id);
 
-    if (!) res.status(400).json({ msg: 'Shell not found'});
+res.json({ msg: 'Vegetable deleted'});
 
-    res.json();
+   } catch (err) {
+    res.status(500).json({ error: 'Failed to delete vegetable'});
+   }
 });
-
 
 export default router;
