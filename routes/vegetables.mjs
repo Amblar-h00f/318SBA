@@ -18,14 +18,16 @@ try {
 
 //read
 router.get('/', async (req, res) => {
+    const {color} = req.query;
+    const filter = color ? {color} : {};
+});
 
-    try {
-        const vegetables = someVegetableArray;
+    
 
 
     //return results
     res.json(vegetables);
-    }catch (err) {
+    } catch (err) {
         res.status(500).json({error: 'Internal server error'});
     }
 });
@@ -35,9 +37,15 @@ router.put('/:id', async (req, res) => {
 
     try {
         const updatedVeg = await Vegetable.findByIdandUpdate(
+            req.params.id,
+            req.body,
+            {new: true}
 
         );
-     res.status(400).json({ error: 'Failed to update vegetable' });
+        res.json(updatedVeg);
+
+    } catch (err) {
+     res.status(400).json({ error: 'Failed to update vegetable'});
     }
 });
 //delete

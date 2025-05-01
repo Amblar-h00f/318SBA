@@ -2,6 +2,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
@@ -16,7 +17,16 @@ app.use((req, res,) => {
     next();
 });
 
+app.use(express.json());
+app.use((req, res, next) => {
+    req.timestamp = Date.now();
+    next();
+});
 
+app.get('/veg-list', async (req, res) => {
+    const vegetables = await getVegFromDB();
+    res.render('veg-list', {vegetables});
+});
 
 //Routes
 
